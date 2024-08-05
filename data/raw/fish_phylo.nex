@@ -1,0 +1,111 @@
+#NEXUS
+[R-package APE, Wed Jan 31 15:36:45 2024]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 49;
+	TAXLABELS
+		Rhaphiodonvulpinus
+		Hemiodusorthonops
+		Piaractusmesopotamicus
+		Metynnislippincottianus
+		Serrasalmusmaculatus
+		Serrasalmusmarginatus
+		Prochiloduslineatus
+		Cyphocharaxmodestus
+		Cyphocharaxnagelii
+		Steindachnerinainsculpta
+		Steindachnerinabrevipinna
+		Leporinuslacustris
+		Leporinusfriderici
+		Schizodonborellii
+		Megaleporinuspiavussu
+		Megaleporinusmacrocephalus
+		Hoplerythrinusunitaeniatus
+		Hopliasmbigua
+		Hopliasargentinensis
+		Hopliassp2
+		Salminusbrasiliensis
+		Acestrorhynchuslacustris
+		Moenkhausiaintermedia
+		Astyanaxlacustris
+		Roeboidesdescalvadensis
+		Eigenmanniatrilineata
+		Gymnotusinaequilabiatus
+		Rhamphichthyshahni
+		Hoplosternumlittorale
+		Loricariichthysplatymetopon
+		Pterygoplichthysambrosettii
+		Pimelodusmysteriosus
+		Parauchenipterusgaleatus
+		Auchenipterusosteomystax
+		Pterodorasgranulosus
+		Trachydorasparaguayensis
+		Hemisorubimplatyrhynchos
+		Pseudoplatystomacorruscans
+		Sorubimlima
+		Hypophthalmusoremaculatus
+		Iheringichthyslabrosus
+		Pimelodusmaculatus
+		Plagioscionsquamosissimus
+		Cichlakelberi
+		Cichlapiquiti
+		Astronotuscrassipinnis
+		Satanopercapappaterra
+		Crenicichlabritskii
+		Geophagussveni
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Rhaphiodonvulpinus,
+		2	Hemiodusorthonops,
+		3	Piaractusmesopotamicus,
+		4	Metynnislippincottianus,
+		5	Serrasalmusmaculatus,
+		6	Serrasalmusmarginatus,
+		7	Prochiloduslineatus,
+		8	Cyphocharaxmodestus,
+		9	Cyphocharaxnagelii,
+		10	Steindachnerinainsculpta,
+		11	Steindachnerinabrevipinna,
+		12	Leporinuslacustris,
+		13	Leporinusfriderici,
+		14	Schizodonborellii,
+		15	Megaleporinuspiavussu,
+		16	Megaleporinusmacrocephalus,
+		17	Hoplerythrinusunitaeniatus,
+		18	Hopliasmbigua,
+		19	Hopliasargentinensis,
+		20	Hopliassp2,
+		21	Salminusbrasiliensis,
+		22	Acestrorhynchuslacustris,
+		23	Moenkhausiaintermedia,
+		24	Astyanaxlacustris,
+		25	Roeboidesdescalvadensis,
+		26	Eigenmanniatrilineata,
+		27	Gymnotusinaequilabiatus,
+		28	Rhamphichthyshahni,
+		29	Hoplosternumlittorale,
+		30	Loricariichthysplatymetopon,
+		31	Pterygoplichthysambrosettii,
+		32	Pimelodusmysteriosus,
+		33	Parauchenipterusgaleatus,
+		34	Auchenipterusosteomystax,
+		35	Pterodorasgranulosus,
+		36	Trachydorasparaguayensis,
+		37	Hemisorubimplatyrhynchos,
+		38	Pseudoplatystomacorruscans,
+		39	Sorubimlima,
+		40	Hypophthalmusoremaculatus,
+		41	Iheringichthyslabrosus,
+		42	Pimelodusmaculatus,
+		43	Plagioscionsquamosissimus,
+		44	Cichlakelberi,
+		45	Cichlapiquiti,
+		46	Astronotuscrassipinnis,
+		47	Satanopercapappaterra,
+		48	Crenicichlabritskii,
+		49	Geophagussveni
+	;
+	TREE * UNTITLED = [&R] ((((1:80.2790501,((2:71.6790691,(3:53.9357331,(4:44.2100352,(5:33.8017772,6:33.8017772)141:10.408258)140:9.7256979)137:17.743336)136:2.9112704,((7:67.1251751,((8:28.0769901,9:28.0769901)145:17.700899,(10:25.8601251,11:25.8601251)146:19.917764)144:21.347286)143:3.9652895,(((12:34.70581446,13:34.70581446)150:10.79382714,14:45.4996416)148:3.710197,(15:25.8335304,16:25.8335304)156:23.3763082)147:21.880626)142:3.4998749)135:5.6887106)134:25.5604516,((17:79.9536782,((18:41.3690652,19:41.3690652)162:27.686235,20:69.0553002)160:10.898378)158:22.373106,(21:91.3821442,(22:90.3761109,((23:60.5809708,24:60.5809708)172:20.4684056,25:81.0493764)169:9.3267345)167:1.0060333)163:10.94464)157:3.5127175)131:24.694633,((26:93.5488996,(27:61.299594,28:61.299594)187:32.2493056)182:29.051915,((29:94.2087632,(30:61.0054067,31:61.0054067)197:33.2033565)193:7.2543204,(((32:51.029787,(33:43.0122411,34:43.0122411)215:8.0175459)214:9.9957126,(35:37.598212,36:37.598212)220:23.4272876)213:21.257892,((37:34.80897459,(38:32.25862069,39:32.25862069)231:2.5503539)230:1.7755718,(40:35.03876119,(41:22.00388154,42:22.00388154)238:13.03487965)234:1.5457852)229:45.69884521)212:19.179692)192:21.137731)181:7.9333201)130:50.441154,(43:122.6219637,(((44:17.15816,45:17.15816)245:44.723039,(46:56.0340775,(47:49.565938,48:49.565938)248:6.4681395)246:5.8471215)244:14.79129,49:76.672489)242:45.9494747)239:58.353325)129:9.2760595;
+END;
