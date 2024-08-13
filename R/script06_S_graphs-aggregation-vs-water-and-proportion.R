@@ -97,8 +97,7 @@ graph <- function(index, type = "prop", title.axis.x = T, labels.axis.y = T, sca
       theme(
         text = element_text(size = 22, color = "black", family = "serif"),
         plot.title = element_text(hjust = 0.05, vjust = -7, size = 12),
-        legend.position = "none",
-        plot.margin = margin(5, 20, 5, 20)
+        legend.position = "none"
       ) +
       scale_shape_manual(values = c("Yes" = 24, "No" = 21)) +
       scale_fill_manual(values = c("Yes" = "black", "No" = "white"))
@@ -150,6 +149,9 @@ graph <- function(index, type = "prop", title.axis.x = T, labels.axis.y = T, sca
 
 g.im.lv <- graph(index = gls.im, type = "level", title.axis.x = T, labels.axis.y = T, scale.x = c(-2,2,0.5))
 g.vm.lv <- graph(index = gls.vm, type = "level", title.axis.x = T, labels.axis.y = T, scale.x = c(-4,5,1))
+
+g.im.prop <- graph(index = gls.im, type = "prop", title.axis.x = T, labels.axis.y = T, scale.x = c(-2,2,0.5))
+g.vm.prop <- graph(index = gls.vm, type = "prop", title.axis.x = T, labels.axis.y = T, scale.x = c(-4,5,1))
 
 
 # And
@@ -245,7 +247,14 @@ sc.vm.df0 <- sc.plot(data = aggregation, index = "vm", lag = "nv.df0")
 im.df0 <- grid.arrange(g.im.lv[[1]], sc.im.df0, ncol = 2, widths = c(8,7))
 vm.df0 <- grid.arrange(g.vm.lv[[1]], sc.vm.df0, ncol = 2, widths = c(8,7))
 
+im.df1_3 <- grid.arrange(g.im.lv[[2]], g.im.lv[[3]], g.im.lv[[4]], ncol = 3)
+vm.df1_3 <- grid.arrange(g.vm.lv[[2]], g.vm.lv[[3]], g.vm.lv[[4]], ncol = 3)
+
+prop_df0 <- grid.arrange(g.im.prop[[1]], g.vm.prop[[1]], ncol = 2)
 
 # Export graph ------------------------------------------------------------
 ggsave(here::here("output","figures","df0_morisita.pdf"), plot = im.df0, width = 17, height = 13)
 ggsave(here::here("output","figures","df0_var_med.pdf"), plot = vm.df0, width = 17, height = 13)
+ggsave(here::here("output","figures","df1_3_morisita.pdf"), plot = im.df1_3, width = 23, height = 13)
+ggsave(here::here("output","figures","df1_3_var_med.pdf"), plot = vm.df1_3, width = 23, height = 13)
+ggsave(here::here("output","figures","prop_df0.pdf"), plot = prop_df0, width = 17, height = 13)

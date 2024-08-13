@@ -34,13 +34,16 @@ corr_gls <- function(aggregation, proportion, species, water_level) {
     )
     
     # Create the 'months' column based on the row index
-    data$months <- seq_len(nrow(data))
+    data$months <- seq(nrow(data))
     
     # Rename columns for clarity
     colnames(data)[2:4] <- c("aggre", "level", "prop")
     
     # Log-transform the water level
     data$level <- log(data$level)
+    
+    # Remove na
+    data <- na.omit(data)
     
     # Define the model formula
     fmla <- as.formula("log(aggre) ~ level + prop")

@@ -9,6 +9,7 @@ cpue.obs <- read.table(here::here("data", "processed", "cpue_obs.txt"), header =
 # Load required packages and functions -------------------------------------
 library(ggplotify)
 library(cowplot)
+library(gridExtra)
 source(here::here("R", "functions", "function_species_selection.R"))
 
 # Define selected species -------------------------------------------------
@@ -98,7 +99,7 @@ graph.tpl <- function(data, species, season, labels.axis = FALSE){
       coord_cartesian(xlim = c(-1, 2.5), ylim = c(-1, 5))
     
     # Add axis labels if required
-    if(labels.axis) {
+    if(labels.axis == TRUE) {
       tpl <- tpl + 
         labs(y = "Log(variância)", x = "Log(média)")
     } else {
@@ -114,7 +115,7 @@ graph.tpl <- function(data, species, season, labels.axis = FALSE){
 }
 
 # Generate TPL slope plots for selected species
-g <- graph.tpl(data = cpue.obs, species = species, season = cpue.obs$ano.mes, labels.axis = FALSE)
+g <- graph.tpl(data = cpue.obs, species = species, season = cpue.obs$ano.mes, labels.axis = TRUE)
 
 ## Plot all graphs
 for(i in 1:49){
@@ -151,10 +152,14 @@ sp49 <- plot_grid(
   nrow = 5
 )
 
+## Species mentioned in the text
+sp_txt <- grid.arrange(g$R.hahni, g$R.descalv, g$S.brevipi, ncol = 3)
+
 # Export combined plots to files -----------------------------------------
 ## Save plots as PDF
 ggsave(here::here("output", "figures", "slope_sp18.pdf"), plot = sp18, width = 19, height = 27)
 ggsave(here::here("output", "figures", "slope_sp36.pdf"), plot = sp36, width = 19, height = 27)
 ggsave(here::here("output", "figures", "slope_sp49.pdf"), plot = sp49, width = 19, height = 22.5)
+ggsave(here::here("output", "figures", "slope_sp_texto.pdf"), plot = sp_txt, width = 15, height = 5)
 
 # End

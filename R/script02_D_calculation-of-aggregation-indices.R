@@ -63,19 +63,25 @@ id.aggregation <- function(abundance, species, season, index = "IM"){
       ## Choose the Morisita index
       if(index == "IM"){
         test.im <- sum(is.na(fish.abund))
-        test.im.n0 <- sum(fish.abund, na.rm = T)
-        if(test.im > 0 | test.im.n0 == 0){
+
+        if(test.im > 0){
           id.morisita <- NA
           tab.resu[l, p.specie] <- id.morisita
         }
-        if(test.im == 0 & test.im.n0 > 0){
+        if(test.im == 0){
           id.morisita <- vegan::dispindmorisita(fish.abund, unique.rm = F, na.rm = F)
-          tab.resu[l, p.specie] <- id.morisita[1,1]
-          
-          max.value <- length(fish.abund)
-          min.value <- 1-((length(fish.abund) - 1) / (sum(fish.abund, na.rm = T) - 1))
-          if(id.morisita[1,1] > max.value | id.morisita[1,1] < min.value){
-            print(paste("The", p.specie, "species presents values outside the range allowed by the",u.season[l],"index"))
+          im <- id.morisita[1,1]
+          ifelse(is.na(im),
+                 tab.resu[l, p.specie] <- NA,
+                 tab.resu[l, p.specie] <- im)
+                 
+          na <- sum(is.na(im))
+          if(na == 0){
+            max.value <- length(fish.abund)
+            min.value <- 1-((length(fish.abund) - 1) / (sum(fish.abund, na.rm = T) - 1))
+            if(id.morisita[1,1] > max.value | id.morisita[1,1] < min.value){
+              print(paste("The", p.specie, "species presents values outside the range allowed by the",u.season[l],"index"))
+            }
           }
         }
       }

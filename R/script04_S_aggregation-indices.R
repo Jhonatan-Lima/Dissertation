@@ -19,9 +19,9 @@ library(tidyr)
 # Bar chart ---------------------------------------------------------------
 index.tab <- tab.aggregation
 index.tab$scientific_name <- factor(index.tab$scientific_name, levels = index.tab$scientific_name)
-colors.g <- alpha(brewer.pal(5, "Set2"), 0.9)
+colors.g <- c(brewer.pal(n = 12, name = "Set3"), brewer.pal(n = 8, name = "Dark2"))
 
-im <- ggplot(index.tab, aes(x = med_im, y = scientific_name, fill = order)) +
+im <- ggplot(index.tab, aes(x = med_im, y = scientific_name, fill = family)) +
   theme_bw() +
   geom_bar(stat = "identity", alpha = 0.5, size = 0.5, width = 0.8, linewidth = 0.3, color = "black") +
   labs(x = "Índice de Morisita", y = NULL) +
@@ -34,7 +34,7 @@ im <- ggplot(index.tab, aes(x = med_im, y = scientific_name, fill = order)) +
   scale_fill_manual(values = colors.g) +
   coord_cartesian(xlim = c(0.2, 6))
 
-vm <- ggplot(index.tab, aes(x = med_vm, y = scientific_name, fill = order)) +
+vm <- ggplot(index.tab, aes(x = med_vm, y = scientific_name, fill = family)) +
   theme_bw() +
   geom_bar(stat = "identity", alpha = 0.5, size = 0.5, width = 0.8, linewidth = 0.3, color = "black") +
   labs(x = "Razão variância/média", y = NULL) +
@@ -51,7 +51,7 @@ vm <- ggplot(index.tab, aes(x = med_vm, y = scientific_name, fill = order)) +
   coord_cartesian(xlim = c(5, 160)) +
   guides(color = "none",
          fill = guide_legend(
-          title = "Ordem"))
+          title = "Família"))
 
 bar_chart <- grid.arrange(im, vm, ncol = 2, widths = c(8,7))
 

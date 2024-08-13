@@ -1,0 +1,50 @@
+"specie";"scientific_name";"Baia";"Parana";"Ivinhema"
+"1";"L.frideri";"Leporinus friderici ";5;35;22
+"2";"L.lacustr";"Leporinus lacustris";49;12;10
+"3";"S.borelli";"Schizodon borellii";24;37;14
+"4";"M.macroce";"Megaleporinus macrocephalus";9;10;20
+"5";"M.piavuss";"Megaleporinus piavussu";6;17;47
+"6";"S.brevipi";"Steindachnerina brevipinna";11;38;11
+"7";"S.insculp";"Steindachnerina insculpta ";7;41;16
+"8";"C.nagelii";"Cyphocharax nagelii";4;25;5
+"9";"C.modestu";"Cyphocharax modestus";17;18;7
+"10";"P.lineatu";"Prochilodus lineatus";20;12;40
+"11";"S.margina";"Serrasalmus marginatus";11;6;53
+"12";"S.maculat";"Serrasalmus maculatus";18;23;35
+"13";"M.lippinc";"Metynnis lippincottianus ";11;54;0
+"14";"P.mesopot";"Piaractus mesopotamicus";2;7;29
+"15";"H.orthono";"Hemiodus orthonops";1;25;10
+"16";"R.vulpinu";"Rhaphiodon vulpinus";13;22;28
+"17";"Ast.lacus";"Astyanax lacustris";22;12;38
+"18";"M.aff.int";"Moenkhausia intermedia";28;25;15
+"19";"R.descalv";"Roeboides descalvadensis";22;17;34
+"20";"A.lacustr";"Acestrorhynchus lacustris";30;36;4
+"21";"S.brasili";"Salminus brasiliensis";1;5;27
+"22";"Hopli.sp3";"Hoplias argentinensis";28;12;12
+"23";"H.mbigua";"Hoplias mbigua";18;26;2
+"24";"Hopli.sp2";"Hoplias sp2";32;2;12
+"25";"H.unitaen";"Hoplerythrinus unitaeniatus";30;5;10
+"26";"P.maculat";"Pimelodus maculatus";24;28;23
+"27";"I.labrosu";"Iheringichthys labrosus";5;24;27
+"28";"H.oremacu";"Hypophthalmus oremaculatus";34;12;9
+"29";"S.lima";"Sorubim lima";7;14;25
+"30";"P.corrusc";"Pseudoplatystoma corruscans ";45;10;25
+"31";"H.platyrh";"Hemisorubim platyrhynchos";5;0;54
+"32";"A.osteomy";"Auchenipterus osteomystax";22;38;9
+"33";"P.galeatu";"Trachelyopterus galeatus";38;8;24
+"34";"P.mysteri";"Pimelodus mysteriosus";6;11;14
+"35";"T.paragua";"Trachydoras paraguayensis";8;11;41
+"36";"P.granulo";"Pterodoras granulosus";14;2;48
+"37";"P.ambrose";"Pterygoplichthys ambrosettii ";30;6;36
+"38";"L.platyme";"Loricariichthys platymetopon";34;25;11
+"39";"H.littora";"Hoplosternum littorale";51;3;12
+"40";"R.hahni";"Rhamphichthys hahni";19;19;26
+"41";"G.inaequi";"Gymnotus inaequilabiatus";40;0;16
+"42";"E.triline";"Eigenmannia trilineata";22;5;33
+"43";"C.britski";"Crenicichla britskii";14;44;7
+"44";"S.pappate";"Satanoperca setepele";12;65;0
+"45";"A.crassip";"Astronotus crassipinnis";47;10;13
+"46";"C.piquiti";"Cichla piquiti";8;29;3
+"47";"C.kelberi";"Cichla kelberi";15;56;2
+"48";"G.sveni";"Geophagus sveni";3;45;1
+"49";"P.squamos";"Plagioscion squamosissimus";22;6;34
