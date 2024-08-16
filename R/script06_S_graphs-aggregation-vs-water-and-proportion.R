@@ -130,7 +130,7 @@ graph <- function(index, type = "prop", title.axis.x = T, labels.axis.y = T, sca
           axis.title.x = element_text(family = "serif", size = 22),
           plot.title = element_text(family = "serif", size = 22, face = "bold")
         ) +
-        labs(x = "Slope", y = "", title = l)
+        labs(x = "Coeficiente parcial", y = "", title = l)
     }
     if(title.axis.x == F) {
       graphic <- graphic +
@@ -253,8 +253,8 @@ vm.df1_3 <- grid.arrange(g.vm.lv[[2]], g.vm.lv[[3]], g.vm.lv[[4]], ncol = 3)
 prop_df0 <- grid.arrange(g.im.prop[[1]], g.vm.prop[[1]], ncol = 2)
 
 # Export graph ------------------------------------------------------------
-ggsave(here::here("output","figures","df0_morisita.pdf"), plot = im.df0, width = 17, height = 13)
-ggsave(here::here("output","figures","df0_var_med.pdf"), plot = vm.df0, width = 17, height = 13)
-ggsave(here::here("output","figures","df1_3_morisita.pdf"), plot = im.df1_3, width = 23, height = 13)
-ggsave(here::here("output","figures","df1_3_var_med.pdf"), plot = vm.df1_3, width = 23, height = 13)
+ggsave(here::here("output","figures","level_df0_morisita.pdf"), plot = im.df0, width = 17, height = 13)
+ggsave(here::here("output","figures","level_df0_var_med.pdf"), plot = vm.df0, width = 17, height = 13)
+ggsave(here::here("output","figures","level_df1_3_morisita.pdf"), plot = im.df1_3, width = 23, height = 13)
+ggsave(here::here("output","figures","level_df1_3_var_med.pdf"), plot = vm.df1_3, width = 23, height = 13)
 ggsave(here::here("output","figures","prop_df0.pdf"), plot = prop_df0, width = 17, height = 13)

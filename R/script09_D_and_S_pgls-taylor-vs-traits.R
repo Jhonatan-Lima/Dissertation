@@ -92,7 +92,7 @@ size_plot <- ggplot(visreg_data, aes(x = x, y = y)) +
         axis.text.x = element_text(color = "black", size = 13),
         axis.text.y = element_text(color = "black", size = 13)
   ) +
-  labs(y = "Expoente da TPL", x = "Log(Tamanho do corpo)")
+  labs(y = "Coeficiente angular da TPL", x = "Log(Tamanho do corpo)")
 
 print(size_plot)
 

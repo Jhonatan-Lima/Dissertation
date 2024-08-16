@@ -2,11 +2,11 @@
 ## Apresentação
 
 Este repositório é um complemento do trabalho de pesquisa intitulado
-**“Padrões de distribuição espacial das populações de peixes da planíce
-de inundação do Alto rio Paraná”**, qual estou realizando durante minha
-dissertação de mestrado no Programa de Ecologia e Evolução da
-Universidade Federal de Goiás sobre a orientação do **Dr. Luis Mauricio
-Bini** e coorientação da **Dra. Rafaela Vendrametto Granzotti**.
+**“Agregação espacial das populações de peixes da planíce de inundação
+do Alto rio Paraná”**, qual realizei durante minha dissertação de
+mestrado no Programa de Ecologia e Evolução da Universidade Federal de
+Goiás sobre a orientação do **Dr. Luis Mauricio Bini** e coorientação da
+**Dra. Rafaela Vendrametto Granzotti**.
 
 ### Organização do repositório
 

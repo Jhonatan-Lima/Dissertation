@@ -15,7 +15,7 @@ library(aplot)
 library(RColorBrewer)
 library(ape)
 library(dplyr)
-library(scales) # Adicione isso para a função alpha()
+
 
 # Graphics for tpl slope --------------------------------------------------
 ## Reorder positions based on phylogeny
@@ -84,7 +84,7 @@ p <- ggplot(tpl.g, aes(x = slope, y = scientific_name, fill = order)) +
   geom_text(aes(label = scientific_name, x = slope), 
             hjust = -0.1, vjust = 0.3,
             family = "serif", fontface = "italic", size = 6) +
-  labs(x = "Expoente da TPL", y = NULL, fill = "Ordem") +
+  labs(x = "Coeficiente angular da TPL", y = NULL, fill = "Ordem") +
   scale_fill_manual(values = colors.p) +
   coord_cartesian(xlim = c(1, 2.7), ylim = c(0, 51)) +
   theme(

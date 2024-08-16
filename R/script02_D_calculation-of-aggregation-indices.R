@@ -10,6 +10,8 @@ traits <- read.csv(here::here("data","raw","species_traits.csv"), h = T)
 # Load functions ----------------------------------------------------------
 source(here::here("R","functions","function_species_selection.R"))
 source(here::here("R","functions","function_aggregation_descriptive_table.R"))
+library(stringr)
+library(vegan)
 
 ## Select species
 species <- species_sel(abundance = cpue.obs)
@@ -182,26 +184,22 @@ tab.aggregation <- dplyr::left_join(traits[,c("scientific_name", "ancient_scient
                                               "parental_care", "diet", "order", "family")], tab.aggregation,  by = "scientific_name")
 
 
-# Procrustes analysis -----------------------------------------------------
-im.pro <- morisita.obs[,species]
-vm.pro <- var_med.obs[,species]
 
-## Data imputation
-for(i in 1:ncol(im.pro)){
-  mean.im <- mean(im.pro[,i], na.rm = T)
-  mean.vm <- mean(vm.pro[,i], na.rm = T)
+# Compare variance/mean ratio and Morisita index --------------------------
+cor.spermam <- function(index1, index2, species){
   
-  im.pro[is.na(im.pro[,i]),i] <- mean.im
-  vm.pro[is.na(vm.pro[,i]),i] <- mean.vm
+  spermam <- as.data.frame(matrix(ncol = 2, nrow = length(species)))
+  colnames(spermam) <- c("species", "spermam")
+  
+  for(i in 1:length(species)){
+    spermam[i,"species"] <- species[i]
+    spermam[i,"spermam"] <- cor(index1[,species[i]], index2[,species[i]], method = "spearman", use = "pairwise.complete.obs")
+  }
+  
+  return(spermam)
 }
 
-## Standardization
-im.pro <- vegan::decostand(im.pro, method = "standardize")
-vm.pro <- vegan::decostand(vm.pro, method = "standardize")
-
-## Procrustes
-concord <- procrustes(im.pro, vm.pro)
-protest(im.pro, vm.pro)
+tab_cor <- cor.spermam(morisita.obs, var_med.obs, species)
 
 
 # Export aggregation index ------------------------------------------------
