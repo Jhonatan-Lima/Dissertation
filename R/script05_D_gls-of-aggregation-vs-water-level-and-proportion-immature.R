@@ -19,6 +19,38 @@ source(here::here("R","functions","function_species_selection.R"))
 ## Select species
 species <- species_sel(vm.obs)
 
+## VIF between water level and proportion
+vif <- as.data.frame(matrix(ncol = 2, nrow = length(species)))
+colnames(vif) <- c("species", "vif")
+
+for(i in 1:length(species)){
+  
+  ## specie
+  sp <- species[i]
+  
+  ## data
+  data <- dplyr::left_join(
+    vm.obs[, c("ano.mes", sp, "nv.df0")],
+    immature[, c(sp, "ano.mes")],
+    by = "ano.mes"
+  )
+  colnames(data)[2:4] <- c("aggre", "level", "prop")
+  data$months <- seq(nrow(data))
+  
+  ## model
+  model <- nlme::gls(
+    log(aggre) ~ level + prop,
+    data = data,
+    na.action = na.omit,
+    correlation = nlme::corARMA(p = 1, q = 0, form = ~ months)
+  )
+  
+  ## vif
+  vif[i,"species"] <- sp
+  vif[i,"vif"] <- car::vif(model)[1]
+}
+
+
 # Aggregation for variance/mean -------------------------------------------
 # AIC models --------------------------------------------------------------
 vm.df0 <- compare_aic(vm.obs, immature, species, water_level = "nv.df0")

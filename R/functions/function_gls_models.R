@@ -18,8 +18,22 @@ corr_gls <- function(aggregation, proportion, species, water_level) {
   
   library(nlme)
   
-  # Initialize a data frame to store results
-  tab_resu <- as.data.frame(matrix(ncol = 12, nrow = 0))
+  # Initialize a data frame to store results with explicit column types
+  tab_resu <- data.frame(
+    specie = rep(NA_character_, length(species)),
+    slope.level = rep(NA_real_, length(species)),
+    ci.lower.level = rep(NA_real_, length(species)),
+    ci.upper.level = rep(NA_real_, length(species)),
+    p.level = rep(NA_real_, length(species)),
+    slope.prop = rep(NA_real_, length(species)),
+    ci.lower.prop = rep(NA_real_, length(species)),
+    ci.upper.prop = rep(NA_real_, length(species)),
+    p.prop = rep(NA_real_, length(species)),
+    p.shapiro = rep(NA_real_, length(species)),
+    aic = rep(NA_real_, length(species)),
+    n = rep(NA_real_, length(species)),
+    stringsAsFactors = FALSE
+  )
   
   # Loop through each species to fit GLS models
   for (s in seq_along(species)) {
@@ -59,16 +73,6 @@ corr_gls <- function(aggregation, proportion, species, water_level) {
     # Extract confidence intervals
     intervals <- nlme::intervals(model)
     
-    # Extract model diagnostics
-    slope_level <- intervals$coef["level", "est."]
-    ci_lower_level <- intervals$coef["level", "lower"]
-    ci_upper_level <- intervals$coef["level", "upper"]
-    p_level <- coef(summary(model))["level", "p-value"]
-    slope_prop <- intervals$coef["prop", "est."]
-    ci_lower_prop <- intervals$coef["prop", "lower"]
-    ci_upper_prop <- intervals$coef["prop", "upper"]
-    p_prop <- coef(summary(model))["prop", "p-value"]
-    
     # Perform Shapiro-Wilk test for normality of residuals
     shp <- shapiro.test(resid(model))
     p_shapiro <- shp$p.value
@@ -76,18 +80,20 @@ corr_gls <- function(aggregation, proportion, species, water_level) {
     # Calculate AIC for model selection
     aic <- AIC(model)
     
-    # Compile results into a single row
-    line <- c(sp, slope_level, ci_lower_level, ci_upper_level, p_level,
-              slope_prop, ci_lower_prop, ci_upper_prop, p_prop, p_shapiro, aic, nobs(model))
-    
     # Append the results to the results data frame
-    tab_resu <- rbind(tab_resu, line)
+    tab_resu[s,"specie"] <- sp
+    tab_resu[s,"slope.level"] <- intervals$coef["level", "est."]
+    tab_resu[s,"ci.lower.level"] <- intervals$coef["level", "lower"]
+    tab_resu[s,"ci.upper.level"] <- intervals$coef["level", "upper"]
+    tab_resu[s,"p.level"] <- coef(summary(model))["level", "p-value"]
+    tab_resu[s,"slope.prop"] <- intervals$coef["prop", "est."]
+    tab_resu[s,"ci.lower.prop"] <- intervals$coef["prop", "lower"]
+    tab_resu[s,"ci.upper.prop"] <- intervals$coef["prop", "upper"]
+    tab_resu[s,"p.prop"] <- coef(summary(model))["prop", "p-value"]
+    tab_resu[s,"p.shapiro"] <- p_shapiro
+    tab_resu[s,"aic"] <- aic
+    tab_resu[s,"n"] <- nobs(model)
   }
-  
-  # Set column names for the results data frame
-  colnames(tab_resu) <- c("specie", "slope.level", "ci.lower.level", "ci.upper.level", 
-                          "p.level", "slope.prop", "ci.lower.prop", "ci.upper.prop", 
-                          "p.prop", "p.shapiro", "aic", "n")
   
   # Merge the results with species traits
   results <- dplyr::left_join(

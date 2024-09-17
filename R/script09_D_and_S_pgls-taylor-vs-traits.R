@@ -73,6 +73,9 @@ summary(pgls.pagel)
 car::Anova(pgls.mod)
 car::Anova(pgls.pagel)
 
+# Check for multicollinearity
+car::vif(pgls.pagel)
+
 # Create table for Pagel model results -------------------------------------
 tab.pagel <- tab_model(pgls.mod, pgls.pagel)
 

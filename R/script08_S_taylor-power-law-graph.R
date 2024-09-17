@@ -46,7 +46,7 @@ g <- ggtree(tree) %<+% d.traits +
   scale_fill_manual(values = c("Invasora" = "#F44336", "Nativa" = "#4CAF50")) +
   
   geom_tippoint(aes(shape = reproductive_guild), size = 4, x = 216) +
-  scale_shape_manual(values = c("LMEF" = 7, "NEFP" = 8, "NEFW" = 13, "NIF" = 2)) +
+  scale_shape_manual(values = c("LMEF" = 19, "NEFP" = 8, "NEFW" = 0, "NIF" = 2)) +
   
   coord_cartesian(xlim = c(0, 214), ylim = c(0, 51)) +
   
